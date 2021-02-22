@@ -75,8 +75,6 @@ class Todo_ {
 
   async updateTodo(req,res){
     try {
-
-      const {title, description, priority} = req.body;
       const todo = await Todo.findById(req.params.id);
       if(!todo){
         return res.status(404).send({
