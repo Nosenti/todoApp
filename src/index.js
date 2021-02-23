@@ -1,3 +1,8 @@
+/**
+ * @file index.js is the root file for this todo application
+ * @author Innocent Ingabire
+ */
+
 import express from 'express';
 import 'regenerator-runtime/runtime';
 import 'dotenv/config'
