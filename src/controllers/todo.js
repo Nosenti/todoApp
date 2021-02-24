@@ -1,9 +1,16 @@
-
 import express from 'express'
 import Todo from '../models/Todo.js'
 import User from '../models/User.js'
 
+/**
+ * class to create a todo object
+ */
 class Todo_ {
+
+  /**
+   * @property {Function} getTodos Getting all todos
+   * @returns {todos}
+   */
   async getTodos(req, res) {
     try {
       
@@ -24,6 +31,10 @@ class Todo_ {
       res.status(500).send(error);
     }
   }
+  /**
+   * @property {Function} getOneTodo Getting one todo item
+   * @returns {todo}
+   */
 
   async getOneTodo(req,res){
     try {
@@ -52,6 +63,11 @@ class Todo_ {
     }
   }
 
+  /**
+   * @property {Function} createTodo creating one todo item
+   * @returns {todo}
+   */
+
   async createTodo(req, res) {
     try {
       const {title, description, priority} = req.body;
@@ -73,10 +89,12 @@ class Todo_ {
     }
   }
 
+  /**
+   * @property {Function} updateTodo updating one todo item
+   * @returns {todo}
+   */
   async updateTodo(req,res){
     try {
-
-      const {title, description, priority} = req.body;
       const todo = await Todo.findById(req.params.id);
       if(!todo){
         return res.status(404).send({
@@ -106,6 +124,11 @@ class Todo_ {
       })
     }
   }
+
+  /**
+   * @property {Function} deleteTodo Getting one todo item
+   * @returns {message}
+   */
   async deleteTodo(req,res){
     try {
       const todo = await Todo.findById(req.params.id);

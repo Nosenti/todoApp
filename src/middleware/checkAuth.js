@@ -2,6 +2,10 @@
 import { verifyingToken } from '../utils/jwtToken.js';
 
 const checkAuth = {
+  /**
+   * @property {Function} verifyUser verifying the user
+   * @returns {token}
+   */
   verifyUser: (req, res, next) => {
     const token = req.headers.token;
     if (!token) {

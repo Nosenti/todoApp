@@ -3,8 +3,15 @@ import express from 'express'
 import User from '../models/User.js'
 import {comparePassword, hashPassword,jwtToken } from '../utils/jwtToken.js';
 
+/**
+ * class to create a todo object
+ */
 export default class Users {
 
+  /**
+   * @property {Function} signUp signup
+   * @returns {token}
+   */
   static async signUp(req, res) {
     try {
       const { name, email, password, confirmPassword} = req.body;
@@ -25,7 +32,7 @@ export default class Users {
         confirmPassword
       })
       const token = jwtToken.createToken(newUser);
-      return res.status(200).send({ token }); 
+      return res.status(201).send({ token }); 
     } catch (error) {
       return res.status(500).send({
         message: 'Server error',
@@ -33,7 +40,10 @@ export default class Users {
       });
     }
   }
-        
+    /**
+     * @property {Function} signUp signup
+     * @returns {token}
+    */
   static async signIn(req, res) {
     try {
       const { email, password } = req.body;
