@@ -22,3 +22,5 @@ app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.listen(PORT, ()=>{
   console.log('Server has started at port ', PORT)
 });
+
+module.exports = app;

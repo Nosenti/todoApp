@@ -20,7 +20,7 @@ router.get('',()=>{
   console.log('Welcome to TodoApp')
 })
 
-router.post('/signup', userSignUpValidate, userController.signIn);
+router.post('/signup', userSignUpValidate, userController.signUp);
 router.post('/signin', userSignInValidate, userController.signIn);
 
 router.post('/todos', checkAuth.verifyUser, todoValidator, todoController.createTodo);

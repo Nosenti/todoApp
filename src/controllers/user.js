@@ -32,7 +32,7 @@ export default class Users {
         confirmPassword
       })
       const token = jwtToken.createToken(newUser);
-      return res.status(200).send({ token }); 
+      return res.status(201).send({ token }); 
     } catch (error) {
       return res.status(500).send({
         message: 'Server error',
